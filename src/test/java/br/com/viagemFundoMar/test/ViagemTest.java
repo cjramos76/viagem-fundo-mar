@@ -10,13 +10,14 @@ import br.com.viagemFundoMar.service.MovimentoSubmarino;
 
 public class ViagemTest {
 
-	private static final Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
+	
 	
 	/*
 	 * Testando um movimento a direita e avançar
 	 */
 	@Test
 	public void testAvancarDireita() {
+		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
 		String movimento = "RM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
@@ -29,6 +30,7 @@ public class ViagemTest {
 	 */
 	@Test
 	public void testAvancarEsquerda() {
+		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
 		String movimento = "LM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
@@ -41,6 +43,7 @@ public class ViagemTest {
 	 */
 	@Test
 	public void testSubir() {
+		Submarino submarino = new Submarino(0, 0, -2, Direcao.NORTE);
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
 		String movimento = "UM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
@@ -53,6 +56,7 @@ public class ViagemTest {
 	 */
 	@Test
 	public void testSubirSuperficie() {
+		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
 		String movimento = "UM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
@@ -65,6 +69,7 @@ public class ViagemTest {
 	 */
 	@Test
 	public void testDescer() {
+		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
 		String movimento = "DM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
@@ -77,6 +82,7 @@ public class ViagemTest {
 	 */
 	@Test
 	public void testMovimentoExemplo() {
+		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
 		String movimento = "LMRDDMMUU";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
@@ -86,6 +92,7 @@ public class ViagemTest {
 	
 	@Test
 	public void testMovimentoExemploExecucao() {
+		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
 		String movimento = "RMMLMMMDDLL";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
