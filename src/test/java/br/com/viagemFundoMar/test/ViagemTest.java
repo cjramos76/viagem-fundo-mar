@@ -10,13 +10,14 @@ import br.com.viagemFundoMar.service.MovimentoSubmarino;
 
 public class ViagemTest {
 
+	private static final Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
+	
 	/*
 	 * Testando um movimento a direita e avançar
 	 */
 	@Test
 	public void testAvancarDireita() {
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
-		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		String movimento = "RM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
 		String posicaoEsperada = "1 0 0 LESTE";
@@ -29,7 +30,6 @@ public class ViagemTest {
 	@Test
 	public void testAvancarEsquerda() {
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
-		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		String movimento = "LM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
 		String posicaoEsperada = "-1 0 0 OESTE";
@@ -42,7 +42,6 @@ public class ViagemTest {
 	@Test
 	public void testSubir() {
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
-		Submarino submarino = new Submarino(0, 0, -2, Direcao.NORTE);
 		String movimento = "UM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
 		String posicaoEsperada = "0 1 -1 NORTE";
@@ -55,7 +54,6 @@ public class ViagemTest {
 	@Test
 	public void testSubirSuperficie() {
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
-		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		String movimento = "UM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
 		String posicaoEsperada = "0 1 0 NORTE";
@@ -68,7 +66,6 @@ public class ViagemTest {
 	@Test
 	public void testDescer() {
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
-		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		String movimento = "DM";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
 		String posicaoEsperada = "0 1 -1 NORTE";
@@ -79,12 +76,20 @@ public class ViagemTest {
 	 * Testando movimento exemplo da prova
 	 */
 	@Test
-	public void movimentoExercicio() {
+	public void testMovimentoExemplo() {
 		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
-		Submarino submarino = new Submarino(0, 0, 0, Direcao.NORTE);
 		String movimento = "LMRDDMMUU";
 		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
 		String posicaoEsperada = "-1 2 0 NORTE";
+		assertEquals(posicaoEsperada, posicaoFinal);
+	}
+	
+	@Test
+	public void testMovimentoExemploExecucao() {
+		MovimentoSubmarino movimentoSub = new MovimentoSubmarino();
+		String movimento = "RMMLMMMDDLL";
+		String posicaoFinal = movimentoSub.executarComando(submarino, movimento);
+		String posicaoEsperada = "2 3 -2 SUL";
 		assertEquals(posicaoEsperada, posicaoFinal);
 	}
 }
