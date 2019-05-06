@@ -7,6 +7,7 @@ pipeline {
                 bat 'echo ************ HOLA **************'
                 bat 'echo ********************************'
                 bat 'mvn clean install'
+                bat 'mvn test'
             }
         }
     }
