@@ -1,8 +1,11 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
+                bat 'set'
+                bat 'echo ************ HOLA **************'
+                bat 'echo ********************************'
                 bat 'mvn clean install'
             }
         }
